@@ -6,6 +6,72 @@
     <title>Campus Hive | Profile</title>
 </head>
 <body>
-    
+    <head>
+        <h1> Campus Hive</h1>
+        <nav>
+         <ul>
+           <li><a href="index.html">Home</a></li>
+           <li><a href="clubs.html">Clubs</a></li>
+           <li><a href="events.html">Events</a></li>
+         </ul>
+        </nav>
+       </head>
+    <main>
+       <h2>Club Profile</h2>
+
+       <p>ID: <span id="id"></span></p>
+       <p>Club: <span id="club"></span></p>
+       <p>Position: <span id="role"></span></p>
+       <p>Skills: <span id="tech"></span></p>
+    </main>
+
+    <script>
+  const id = new URLSearchParams(window.location.search).get('id');
+
+const students = [
+  {
+    id: '1',
+
+    club: 'Coding Club',
+    role: 'Lead Developer',
+    tech: 'HTML, CSS, JavaScript',
+  },
+  {
+    id: '2',
+
+    club: 'Robotics Club',
+    role: 'Hardware Lead',
+    tech: 'Arduino, Sensors',
+  },
+  {
+    id: '3',
+
+    club: 'Literary Club',
+    role: 'Content Head',
+    tech: 'Writing, Editing',
+  },
+  {
+    id: '4',
+
+    club: 'Design Club',
+    role: 'Creative Lead',
+    tech: 'Figma, Canva',
+  },
+];
+
+const student = students.find((e) => e.id === id);
+
+if (student) {
+  document.getElementById('id').innerText = student.id;
+
+  document.getElementById('club').innerText = student.club;
+  document.getElementById('role').innerText = student.role;
+  document.getElementById('tech').innerText = student.tech;
+} else {
+  document.querySelector('section').innerHTML =
+    '<h3>Member not found</h3>';
+}
+
+    </script>
 </body>
 </html>
